@@ -42,6 +42,12 @@ constructor (props){
       })
   }
 
+    deleteMovie = (key) => {
+      const cards={...this.state.cards};
+      delete cards(key); 
+      this.setState({ cards })
+    }
+
   // cardRender = ({ data }) => {
   //   let cardArray = this.cards.map(data.title)
   //   return cardArray
@@ -55,6 +61,7 @@ constructor (props){
           handleSubmit={this.searchApi}
         />
         <Card
+          deleteMovie={this.deleteMovie}
           cards={this.state.cards}
         />
       </div>

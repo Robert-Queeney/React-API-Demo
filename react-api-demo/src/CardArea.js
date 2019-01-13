@@ -9,7 +9,9 @@ const Cards = ({ cards }) => {
             <h1>There should be shit here</h1>
             <div className="card">{cards.map(card => (
                 <div key={card.title}>
-                    {card.Title} {card.Year}
+                    <div className="title">{card.Title}</div> 
+                    <div className="year">{card.Year}</div>
+                    <img className="poster" alt={card.Title} src={card.Poster} />
                 </div>
             ))}
             </div>
