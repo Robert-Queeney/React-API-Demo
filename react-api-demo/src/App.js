@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './SearchArea';
 import Card from './CardArea';
+import Testies from './TestArea';
 import './App.css';
 
 class App extends Component {
@@ -10,16 +11,9 @@ constructor (props){
     this.state = {
       cards: []
     };
-    // below gives me an error
+    // If you dont use arrow function on the below methods, you need to bind them here
     //this.searchApi = this.searchApi.bind(this);
 }
-
-  // Trying to update state without the API call 
-  // addToCards = event => {
-  //   let text=event.target.value;
-  //   this.setState({ text })
-  // }
-
   // async searchApi(text) {
   //   const that= this;
   //   let url = 'http://www.omdbapi.com/?t='+text+'&apikey=d9f3b76b'
@@ -43,9 +37,10 @@ constructor (props){
   }
 
     deleteMovie = (key) => {
+      // console.log("Clicked?")
       const cards={...this.state.cards};
-      delete cards(key); 
-      this.setState({ cards })
+      delete cards[key]; 
+      this.setState({ cards: this.state.cards })
     }
 
   // cardRender = ({ data }) => {
@@ -61,7 +56,10 @@ constructor (props){
           handleSubmit={this.searchApi}
         />
         <Card
-          deleteMovie={this.deleteMovie}
+          handleSubmit={this.deleteMovie}
+          cards={this.state.cards}
+        />
+        <Testies
           cards={this.state.cards}
         />
       </div>
