@@ -28,6 +28,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   border: 1rem double #1a1a1a;
+  margin:10px; 
   
 }
 

@@ -35,18 +35,18 @@ constructor (props){
         this.setState({ cards: this.state.cards })
       })
   }
-
+// This function is now being called in the handleSubmit in cardArea, it is just not deleting the movie
+// cards[key] is undefined and it should be   that is a mistake
     deleteMovie = (key) => {
       // console.log("Clicked?")
       const cards={...this.state.cards};
-      delete cards[key]; 
+      delete cards[key];
+      // delete cards[index]; 
       this.setState({ cards: this.state.cards })
+      console.log("deleted?")
+      console.log(cards[key]) //dumb
+      console.log(cards)
     }
-
-  // cardRender = ({ data }) => {
-  //   let cardArray = this.cards.map(data.title)
-  //   return cardArray
-  // }
 
   
   render() {
